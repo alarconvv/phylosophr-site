@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>phyloSophR — Reproducible phylogenetic comparative research</title>
+<meta name="description" content="phyloSophR is a dissertation project building an intelligent assistant for reproducible phylogenetic comparative research, and a community-annotation effort to train it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell brand-row">
+    <img class="brand-logo" src="assets/logo.png" alt="phyloSophR logo" width="44" height="44">
+    <div>
+      <p class="brand-name">phyloSophR</p>
+      <p class="brand-tag">An intelligent assistant for phylogenetic comparative research</p>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="shell">
+      <span class="status-tag status-tag--dot">Dissertation Proposal · In Progress · UMass Boston</span>
+      <h1>Reproducible science shouldn't depend on <strong>memory.</strong></h1>
+      <p class="lede">phyloSophR is a PhD dissertation project (Objective 1 of "Phylogenetic Comparative Biology: new tools, improving reproducibility, and leveraging its power in other fields") building a tool that turns a plain-language hypothesis into an auditable, preregistered analytical workflow, locked in before any data is touched. Its training data is meant to be built the same way it asks researchers to work: openly, by the community.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#annotation">See how community annotation works</a>
+        <a class="btn btn-outline" href="#mechanism">How the tool works</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="shell">
+      <p class="section-kicker">The problem</p>
+      <h2>Phylogenetic comparative methods have a documentation gap.</h2>
+      <p class="section-intro">Phylogenetic comparative methods (PCM) have been central to evolutionary biology for four decades, but the field faces two compounding problems, both described in the dissertation proposal's Significance section.</p>
+
+      <h3>Reproducibility</h3>
+      <p>PCM studies are frequently characterized by long, complex workflows spread across scripts and software: tree pruning, model selection, data transformation, and sensitivity analyses. Standard articles rarely have room to document every decision, and any undocumented choice (a branch-length transformation, a random seed) can subtly change a study's results. Without standardized reporting or pre-registered analytic pipelines, comparative studies are difficult to replicate, verify, or synthesize.</p>
+
+      <h3>Accessibility</h3>
+      <p>PCM is implemented almost entirely as specialized R libraries that assume programming fluency, statistical modeling knowledge, and English-language documentation, skills that aren't distributed evenly across the scientific community. According to the proposal's cited traffic data, roughly a fifth of visits to a major PCM documentation resource (blog.phytools.org) come from Latin America, Africa, and parts of Asia: regions with some of the world's highest biodiversity, and often the least practical access to the tools needed to study it.</p>
+
+      <div class="callout callout--note">
+        <span class="callout-label">From the proposal</span>
+        <p>"Reinforcing the analytical foundation of evolutionary biology will have a broad impact across numerous areas of the biological sciences and beyond."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mechanism">
+    <div class="shell">
+      <p class="section-kicker">The mechanism</p>
+      <h2>From a hypothesis in plain language to an auditable, preregistered design.</h2>
+      <p class="section-intro">phyloSophR takes a hypothesis stated in natural language, for example <em>"The common ancestor of Australaves should have been a bird of medium size, rather than as large as an ostrich or as small as a New Zealand wren,"</em> and walks it through a fixed, versioned pipeline before any data is collected:</p>
+
+      <ol class="step-list plain">
+        <li class="step"><span class="n">1</span><div><h3>Parse the hypothesis</h3><p>A fine-tuned language model extracts the entities and relationships in the hypothesis: trait, taxonomic group, process, predicted direction.</p></div></li>
+        <li class="step"><span class="n">2</span><div><h3>Assemble the workflow</h3><p>Those entities are compiled into a directed acyclic graph (DAG) of analytical operations: an explicit, ordered, back-traceable structure, never a black box.</p></div></li>
+        <li class="step"><span class="n">3</span><div><h3>Validate, human-in-the-loop</h3><p>A logic-checking layer flags structural gaps (like a missing tree-and-trait matching step) and suggests fixes; the researcher decides, never the model.</p></div></li>
+        <li class="step"><span class="n">4</span><div><h3>Simulate and check power</h3><p>The proposed design is stress-tested via simulation across sampled parameter conditions before it's ever run on real data.</p></div></li>
+        <li class="step"><span class="n">5</span><div><h3>Export, pre-registered</h3><p>The finished, resolved design exports as an annotated R script, a Quarto report, and a JSON-LD workflow, ready for an OSF pre-registration.</p></div></li>
+      </ol>
+
+      <p style="margin-top:26px">Because the design is locked in before results exist, it becomes structurally resistant to p-hacking and HARKing (Hypothesizing After Results are Known). This is the central innovation the proposal names for this objective: making good scientific practice the path of least resistance, without adding to a researcher's workload.</p>
+    </div>
+  </section>
+
+  <section id="annotation">
+    <div class="shell">
+      <p class="section-kicker">The community annotation task</p>
+      <h2>phyloSophR's own training data is meant to be built in the open.</h2>
+      <p class="section-intro">Scientists who work with mined or scraped data know that cleaning it can consume up to 80% of a project's time. Building a gold-standard, domain-specific text corpus faces the same problem, and it shouldn't be done by one person.</p>
+
+      <h3>What "annotation" means here</h3>
+      <p>To teach a language model to recognize PCM-specific concepts, someone has to read real methods sections and mark up what's in them: which model was fit, on what kind of tree, under which assumptions. Here's a real example from the proposal: a single sentence, annotated.</p>
+
+      <div class="annotation-demo">
+        <span class="demo-label">From the proposal</span>
+        <p class="source-sentence">"We fitted an <mark>OU-model</mark> in a Maximum Likelihood <mark>tree</mark>, a tree which was inferred under <mark>GTR+Gamma</mark> and <mark>500</mark> <mark>bootstrap</mark> replicates."</p>
+        <div class="tag-grid">
+          <div class="tag"><span class="k">evolutionaryBranchModel</span><span class="v">OU-model</span></div>
+          <div class="tag"><span class="k">entity</span><span class="v">tree</span></div>
+          <div class="tag"><span class="k">inferenceMethod</span><span class="v">Maximum Likelihood</span></div>
+          <div class="tag"><span class="k">substitutionModel</span><span class="v">GTR+Gamma</span></div>
+          <div class="tag"><span class="k">replicates</span><span class="v">500</span></div>
+          <div class="tag"><span class="k">uncertaintyMetric</span><span class="v">Bootstrap</span></div>
+        </div>
+      </div>
+
+      <h3>Phase one: a small expert team</h3>
+      <p>The initial corpus, drawn from 500 peer-reviewed articles spanning the five main PCM analysis types, will be double-annotated by a team of three annotators with varying levels of PCM expertise, using Prodigy's active-learning tooling to prioritize the most informative texts and reduce annotation effort over time. Agreement between annotators will be measured with Cohen's Kappa and Krippendorff's Alpha before any annotated data is released.</p>
+
+      <h3>Phase two: the community, annotating for the community</h3>
+      <p>A team of three won't be enough to reach the scale a useful corpus needs. Beyond the initial dataset, the proposal describes opening annotation to the wider PCM community — researchers contributing by annotating their own publications, and student volunteers contributing more broadly. The idea is explicit in the proposal's own words:</p>
+      <div class="callout callout--note">
+        <span class="callout-label">From the proposal</span>
+        <p>"This collaborative approach will promote and reinforce the importance of transparency and reproducibility in science, and, at the same time, the training corpus could grow progressively... the annotation task would be a more valuable activity, since it would be work done by the community for the community."</p>
+      </div>
+
+      <p>The proposal cites the Smithsonian Institution's Neotropical Studies model — volunteers contributing to documentation and museum-label transcription — as the precedent for this idea, including the possibility of community certificates or acknowledgment in dataset documentation for contributors.</p>
+
+      <h3>Organizations the project hopes to work with</h3>
+      <p>The proposal names several organizations whose support could help this initiative reach the wider evolutionary-biology community. None of these are confirmed partners or sponsors — they're named in the proposal as potential collaborators worth reaching out to as the project develops:</p>
+      <div class="chip-row">
+        <span class="chip">Open Science Framework</span>
+        <span class="chip">AI for Science</span>
+        <span class="chip">The Turing Institute</span>
+        <span class="chip">rOpenSci</span>
+      </div>
+
+      <div class="callout callout--status">
+        <span class="callout-label">Current status</span>
+        <p>The community-annotation phase is <strong>planned, not active yet</strong>. The dissertation proposal has not been defended, the initial expert-annotated corpus doesn't exist yet, and there is no annotation tool or sign-up process to join today. This page exists to explain the idea clearly enough that, when that phase opens, you'll already understand what you'd be signing up for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-involved">
+    <div class="shell contact">
+      <p class="section-kicker">Get in touch</p>
+      <h2>Interested in phyloSophR or the annotation effort?</h2>
+      <p>There's no mailing list or form yet — reach out directly and you'll hear back when there's something concrete to share.</p>
+      <a class="btn btn-outline" href="mailto:REPLACE-WITH-CONTACT-EMAIL@umb.edu">Email [add your contact address]</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>phyloSophR is Objective 1 of a PhD dissertation proposal in Integrative Biosciences (Bioinformatics track) at the University of Massachusetts Boston, advised by Dr. Liam J. Revell. This page summarizes the proposal as written; it is not a completed or funded project.</p>
+  </div>
+</footer>
+
+</body>
+</html>
