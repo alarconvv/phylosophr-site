@@ -98,7 +98,7 @@ A restrained, mostly-neutral palette where color is reserved for status and one 
 - **Ink Navy** (`#2C3E50`): all headings, body text, primary buttons, links, and focus rings. Carries the large majority of the page's visual weight — this is a one-color system, not a multi-accent one.
 
 ### Secondary
-- **Signal Turquoise** (`#18BC9C`) with **Deep Turquoise Ink** (`#0E6B57`) for text and **Pale Turquoise** (`#E8F7F3`) for backgrounds: marks the community-annotation narrative specifically — the annotated-entity highlights in the demonstration card, the "From the proposal" quote callouts, the section kicker for that thread.
+- **Signal Turquoise** (`#18BC9C`) with **Deep Turquoise Ink** (`#0E6B57`) for text and **Pale Turquoise** (`#E8F7F3`) for backgrounds: marks the community-annotation narrative specifically — the annotated-entity highlights in the demonstration card and the "Why it matters" callout.
 
 ### Tertiary
 - **Amber** (`#F39C12`) with **Deep Amber Ink** (`#8A5A00`) for text and **Pale Amber** (`#FDF3E3`) for backgrounds: reserved exclusively for honesty/status notices — the "planned, not active yet" callout and the hero's status-tag dot. Never used decoratively.
@@ -124,7 +124,7 @@ A restrained, mostly-neutral palette where color is reserved for status and one 
 - **Headline** (650, `clamp(24px, 3vw, 32px)`, 1.2 line-height, -0.02em): section H2s, max 22ch.
 - **Title** (650, 19px): H3 subheads within a section, and step/stat card titles.
 - **Body** (400, 16px, 1.6 line-height, max 68ch measure): all paragraph copy.
-- **Label** (500–700, 12–13px, uppercase, tracked): section kickers, status tags, callout labels, annotation-demo field keys.
+- **Label** (500–700, 12–13px, uppercase, tracked): status tags, callout labels, annotation-demo field keys. Section-level eyebrow kickers above headings were removed in the 2026-09-22 polish pass — the craft floor bans them outright ("no brief earns it back"); headings now carry their own context.
 
 ## Layout
 
@@ -170,7 +170,7 @@ A dark navy card (`background: var(--ink)`, white text) that inverts the page's 
 
 ### Do:
 - **Do** keep the entire page on the single navy ink color for text and primary actions; introduce turquoise or amber only for their specific named roles.
-- **Do** quote the proposal verbatim inside turquoise callouts, and mark any illustrative (non-verbatim) content clearly as such.
+- **Do** write in direct first-person project voice ("phyloSophR does...", "phyloSophR plans to...") rather than narrating a source document ("the proposal says..."); keep every fact traceable to real source material without citing it as a quoted document on the page.
 - **Do** keep buttons, tags, and cards on the 4/6/8px radius scale — no larger radii, no pill shapes outside the partner-chip list.
 - **Do** use IBM Plex Mono only for quoted/annotated source material, never for ordinary UI labels.
 
